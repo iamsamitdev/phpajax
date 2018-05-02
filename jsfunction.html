@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>JS Function</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="author" href="humans.txt">
+    </head>
+    <body>
+        
+        <script type="text/javascript">
+        	// สร้างฟังก์ชัน
+        	function wakeup()
+        	{
+        		alert("Hello from function");
+        	}
+
+        	function showinfo(name,tel)
+        	{
+        		alert("Hello "+name +" Tel "+tel);
+        	}
+
+        	function sumData(num1,num2)
+        	{
+        		var sum = num1 + num2;
+        		return sum;
+        	}
+
+
+        	// เรียกใช้งานฟังกืชัน
+        	wakeup();
+        	showinfo("Samit","089893893");
+        	alert("ผลรวมเท่ากับ" + sumData(5,8));
+
+        </script>
+
+
+        <button onclick="showinfo('Samit','089893893')">Show Info</button>
+    </body>
+</html>

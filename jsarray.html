@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>JS Aray</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="author" href="humans.txt">
+    </head>
+    <body>
+        
+        <script type="text/javascript">
+        	var empname = ["John","Jane","Jany","Joom"];
+        	empname[4] = "Boby";
+        	empname[2] = "Nonny";
+
+        	// การเติมข้อมูลไปที่ท้าย array
+        	empname.push("Seree");
+
+        	// การดึงข้อมูลตัวท้ายของ array
+        	empname.pop();
+
+        	// ดึงข้อมูลตัวแรกออก
+        	empname.shift();
+
+        	// แทรกสมาชิกที่ตัวแรกของ array
+        	empname.unshift("Areeya");
+
+        	// ขนาด array
+        	//document.write(empname.length+"<br>");
+
+        	for(var a=0;a<empname.length;a++){
+        		//document.write(empname[a]+"<br>");
+        	}
+
+
+        	// Array แบบ Key-Value
+        	var person = {
+
+        		"basic_info": {
+        			"fullname":"Samit Koyom",
+        			"email":"samit@gmail.com",
+        			"tel":"089398408448"
+        		},
+
+        		"education_info": {
+        			"school":"Bangkok School",
+        			"grade":"BA",
+        			"year":"2010"
+        		},
+
+        		"status":"Single"
+        	}
+
+        	document.write(JSON.stringify(person));
+        	document.write(person.basic_info.email+"<br>");
+        	document.write(person.status+"<br>");
+        	
+        </script>
+    </body>
+</html>

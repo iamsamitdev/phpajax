@@ -1,0 +1,45 @@
+.bg-light
+{
+	background-color: #43A309 !important;
+}
+
+.fas, .fab 
+{
+	font-size: 60px;
+}
+
+.fa-heart
+{
+	color: #29810E;
+}
+
+.fa-star
+{
+	color: #BD0303;
+}
+
+.fa-envira
+{
+	color: #0243C7;
+}
+
+.feature
+{
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+
+.detail
+{
+	text-align: justify;
+	text-justify: inter-word;
+}
+
+.form-login
+{
+	margin-top: 20vh;
+	border: 2px solid #1E5084;
+	padding: 30px;
+	border-radius: 10px;
+	margin-bottom: 20px;
+}
