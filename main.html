@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Main Page</title>
+       <link rel="stylesheet" href="assets/Global/lib/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/Frontend/fonts/css/fontawesome-all.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/Frontend/css/custom.css">
+    </head>
+    <body>
+        
+	<div class="jumbotron">
+		<h1 class="display-3">Main Page</h1>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-2">
+			  	<ul>
+			  	    <li><a href="#" id="menu1">Menu 1</a></li>
+			  	    <li><a href="#" id="menu2">Menu 2</a></li>
+			  	    <li><a href="#" id="menu3">Menu 3</a></li>
+			  	    <li><a href="#" id="menu4">Menu 4</a></li>
+			  	</ul>
+			</div>
+			<div class="col-md-10">
+			  	<div id="result">
+			  		
+			  	</div>
+			</div>
+		</div>
+	</div>
+
+        <script src="assets/Global/lib/jquery/jquery-3.3.1.min.js"></script>
+        <script src="assets/Global/lib/bootstrap/js/bootstrap.min.js"></script>
+	
+        <script type="text/javascript">
+	$(function(){
+
+		$('a#menu1').click(function(){
+			$('#result').hide().load('content1.html').slideDown('1000');
+		});
+
+		$('a#menu2').click(function(){
+			$('#result').hide().load('content2.html').slideDown('1000');
+		});
+
+		$('a#menu3').click(function(){
+			$('#result').hide().load('content3.html').slideDown('1000');
+		});
+
+		$('a#menu4').click(function(){
+			$('#result').hide().load('content4.html').slideDown('1000');
+		});
+	});	
+        </script>
+
+    </body>
+</html>
