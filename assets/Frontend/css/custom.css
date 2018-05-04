@@ -43,3 +43,11 @@
 	border-radius: 10px;
 	margin-bottom: 20px;
 }
+
+.register-error
+{
+	color: #CE0202;
+	font-size: 14px;
+	padding-top: 5px;
+	border-color: #CE0202;
+}

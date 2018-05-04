@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Login</title>
+        <link rel="stylesheet" href="assets/Global/lib/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/Frontend/fonts/css/fontawesome-all.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/Frontend/css/custom.css">
+ 
+    </head>
+    <body>
+
+	<div class="jumbotron">
+		<div class="container">
+			<h2 class="display-3 text-center">เข้าสู่ระบบ</h2>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-6">
+				<div class="alert alert-success" role="alert" id="success_box">
+					<strong>Success!</strong> เข้าสู่ระบบเรียบร้อย.
+				</div>
+				<form name="login_form" id="login_form" method="post" action="login_process.php" enctype="multipart/form-data">
+					
+
+					<div class="form-group row">
+						<label for="username" class="col-sm-3 col-form-label">Username</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="username" name="username">
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label for="password" class="col-sm-3 col-form-label">Password</label>
+						<div class="col-sm-9">
+							<input type="password" class="form-control" id="password" name="password">
+						</div>
+					</div>
+
+					
+					<div class="form-group row">
+						<label  class="col-sm-3 col-form-label"></label>
+						<div class="col-sm-9">
+							<button type="submit" id="submit" class="btn btn-primary">Sign in</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+        
+        <script src="assets/Global/lib/jquery/jquery-3.3.1.min.js"></script>
+        <script src="assets/Global/lib/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/Global/lib/validation/jquery.validate.min.js"></script>
+        <script src="assets/Global/lib/validation/additional-methods.min.js"></script>
+
+        <script type="text/javascript">
+
+        	$(function(){
+        		$('#success_box').hide();
+        	});
+	        	
+        	$('form[name=login_form]').validate({
+
+        		rules: {
+        			
+        			username:{
+        				required:true,
+        				minlength:6
+        			},
+        			password:{
+        				required:true,
+        				minlength:8
+        			}	
+        		},
+
+        		messages:{
+  			
+        			username:{
+        				required:"กรุณากรอกชื่อผู้ใช้ก่อน",
+        				minlength:"ความยาวไม่ต่ำกว่า 6 ตัวอักษร"
+        			},
+        			password:{
+        				required:"กรอกรหัสผ่านก่อน",
+        				minlength:"ความยาวไม่ต่ำกว่า 8 ตัวอักษร"
+        			}
+        			
+        		},
+
+        		errorClass: "register-error",
+                	errorPlacement: function(error, element) {
+                    		error.appendTo( element.parent());
+                	},
+
+
+                	submitHandler:function(form){
+
+                		// เมื่อตรวจสอบฟอร์มผ่านแล้ว
+                		// รับค่าจากฟอร์ม
+                		data = new FormData($("#login_form")[0]);
+
+                		$.ajax({
+                			url: 'login_process.php',
+				type: 'POST',
+				data: data,
+				processData: false,
+				contentType: false,
+
+                			beforeSend:function() { 
+                				// loading
+                				$("button#submit").attr("disabled", true).text("กำลังส่งข้อมูล....");
+                			},
+
+                			complete:function() {
+                				$("button#submit").attr("disabled", false).text("Sign in");
+                			},
+
+                			success: function(data)
+	 			{
+	 				if(data=="login success")
+	 				{
+	 					$('#success_box').show();
+	 					$('#login_form').trigger('reset');
+	 					window.location = "backend/dashboard.php";
+	 				}else{
+	 					alert('เข้าสู่ระบบไม่ถูกต้อง ลองใหม่');
+	 				}
+	 			}
+                		});
+                	}
+
+        	});
+
+        </script>
+    </body>
+</html>
